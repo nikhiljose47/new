@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>time</title>
+	<style type="text/css">
+	#img1{
+		width: 200px;
+		height: 200px;
+		background-color:red;
+		
+		position: relative;
+	}
+</style>
+</head>
+<body>
+
+<script type="text/javascript">
+ var start=new Date().getTime();
+
+	function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+function makeshaper(){
+	var top=Math.random()*400;
+	var ht=Math.random()*400;
+	var wt=(Math.random()*200)+100;
+	if (Math.random()>0.5)
+	document.getElementById("img1").style.borderRadius="50%";
+else
+document.getElementById("img1").style.borderRadius="0%";
+document.getElementById("img1").style.backgroundColor=getRandomColor();
+	document.getElementById("img1").style.top=top+"px";
+	document.getElementById("img1").style.width=wt+"px";
+	document.getElementById("img1").style.height=ht+"px";
+	document.getElementById("img1").style.left=ht+"px";
+    document.getElementById("img1").style.display="block";
+    start=new Date().getTime();	
+}
+function afterdelay(){
+setTimeout(makeshaper,Math.random()*2000);
+}
+
+ document.getElementById("img1").onclick=function(){
+ 	var end=new Date().getTime();
+ 	document.getElementById("img1").style.display="none";
+ 	document.getElementById("empty").innerHTML=(end-start)/1000+" second !!";	
+    afterdelay();
+}
+</script>
+</body>
+</html>
